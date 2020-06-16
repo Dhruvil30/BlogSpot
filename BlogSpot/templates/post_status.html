@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Post Page</title>
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<form action="/form_goto_main" method="post">
+
+			<div class = right_corner>
+				<input type="submit" name="goto_main_button" class="button" value="Main Page">
+			</div>
+
+		</form>
+
+		<form action="/form_add_post" method="post">
+
+			<h2>Add Post</h2>
+			<bold>Subject : </bold><br>
+			<input type="text" name="post_subject"><br>
+
+			<bold>Content : </bold><br>
+			<textarea name="post_content" rows="6" cols="60">
+  			</textarea><br>
+
+			<input type="submit" name="add_post_button" class="button" value="Post">
+
+		</form>
+
+		<form action="/form_delete_post" method="post">
+
+			<h2>Delete Post</h2>
+			<input type="text" name="delete_post"><br>
+			<input type="submit" name="delete_post_button" class="button" value="Delete">
+
+		</form>
+
+	</div>
+
+	<div>
+		<h2>{{status}}</h2>
+	</div>
+
+{% endblock %}

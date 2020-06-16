@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Register Page</title>
+{% endblock %}
+
+{% block body %}
+
+	<form action="/form_goto_login_page" method="post">
+		<div class="right_corner">
+			<input type="submit" name="login_button" class="button" value="Login Page">
+		</div>
+	</form>
+
+	<div>
+		<h1>Register</h1>
+	</div>
+
+	<div>
+		<form action="/form_register" method="post">
+			Username : <br>
+			<input type="text" name="username"><br>
+			Password : <br>
+			<input type="password" name="password"><br>
+			Confirm Password: <br>
+			<input type="password" name="con_password"><br><br>
+			<input type="submit" name="register" class="button" value="register">
+		</form>
+	</div>
+
+	<div>
+		<h1>{{status}}</h1>
+	</div>
+
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+	<title>Admin Page</title>
+{% endblock %}
+
+{% block body %} 
+
+	<div>
+		<form action="/form_admin" method="post">
+
+			<div class = right_corner>
+				<input type="submit" name="logout_button" class="button" value="Logout">
+			</div>
+
+			<div>
+				<h1>Welcome Dhruvil</h1>
+			</div>
+
+			<br>
+			Username:
+			<input type="text" name="username"><br><br>
+			<input type="submit" name="delete_user_button" class="button" value="Delete Account"><br><br>
+
+			<input type="submit" name="display_users_button" class="button" value="Display Users"><br>
+
+			<div>
+					{% if users == []: %}
+						<h2>No users are there</h2>
+					{% else: %}
+						{% for user in users %}
+							<h4>{{user}}</h4>
+						{% endfor %}
+					{% endif %}
+			</div>
+
+		</form>
+	</div>
+
+	<div>
+		<h2>{{status}}</h2>
+	</div>
+	
+{% endblock %}

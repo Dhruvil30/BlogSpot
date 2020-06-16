@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Main Page</title>
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<form action="/form_main" method="post">
+
+			<div>
+
+				<input type="submit" name="edit_button" class="button" value="Edit Profile" 
+				style="float: left;">
+				<input type="submit" name="logout_button" class="button" value="Logout" 
+				style="float: right;">
+
+			</div>
+
+			<br>
+
+			<h1>Welcome {{name}}</h1>
+			<input type="submit" name="post_button" class="button" value="Post/Delete"><br>
+
+			<h2>Search :</h2>
+			<input type="text" name="search_bar" placeholder="Search here">
+			<input type="submit" name="search_button" value="🔍">
+
+			<div>
+				{% if search_name and posts != []: %}
+					<h3 align="left">Posted by <strong>{{ search_name }}</strong></h3>
+				{% endif %}
+				<ul>
+					{% for post in posts %}
+						<li><h4 align = "left">Subject : {{post[0]}}</h4>
+						</li>
+						<pre align = "left">{{post[1]}}</pre>
+						<br>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div>
+				{% for name in sub_dir %}
+					<h3 align="left">Posted by <strong>{{ name }}</strong></h3>
+				<ul>
+						<li><h4 align = "left">Subject : {{sub_dir[name][0][0]}}</h4>
+						</li>
+						<pre align = "left">{{sub_dir[name][0][1]}}</pre>
+						<br>
+				</ul>
+				{% endfor %}
+			</div>
+
+		</form>
+	</div>
+	
+	<div>
+		<h3>{{status}}</h3>
+	</div>
+
+{% endblock %}

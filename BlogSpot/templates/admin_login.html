@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+	<title>Admin Login Page</title>
+{% endblock %}
+
+{% block body %} 
+
+	<div>
+		<form action="/form_admin_login" method="post">
+
+			<div>
+				<h1>Admin Login</h1>
+			</div>
+
+			Password:<br>
+			<input type="password" name="password"><br><br>
+
+			<input type="submit" name="login_button" class="button" value="Login">
+
+		</form>
+	</div>
+
+	<div>
+		<h2>{{status}}</h2>
+	</div>
+	
+{% endblock %}
